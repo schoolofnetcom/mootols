@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <main id="main">
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.6.0/mootools-core.js"></script>
+    <script>
+        $(window).addEvent('domready', function() {
+            var Person = new Class({
+                initialize: function() {
+                    console.log('This my Person class')
+                },
+                walk: function() {
+                    console.log('Im walking...')
+                }
+            })
+
+            var Leonan = new Class({
+                Extends: Person,
+                Implements: Events,
+                initialize: function() {
+                    console.log('Leonan class')
+                    this.parent()
+                },
+                speak: function() {
+                    this.fireEvent('speaking')
+                }
+            })
+
+            Leonan.name = 'Leonan'
+            Leonan.getName = function(){
+                console.log('Leonan')
+            }
+
+            Leonan.getName();
+
+            var leonan = new Leonan()
+
+            leonan.walk()
+
+            leonan.addEvent('speaking', function() {
+                console.log('My first event from class')
+            })
+            leonan.speak()
+
+
+
+            // var MyFirstClass = new Class({
+            //     message: 'Hello from my first class',
+
+            //     initialize: function(name) {
+            //         console.log('Hello from my constructor ', name)
+            //     }
+            // })
+
+            // new MyFirstClass("Erik")
+
+
+             // var obj = new fisrtClass();
+            // console.log(obj.message, fisrtClass)
+        })
+    </script>
+</body>
+</html>

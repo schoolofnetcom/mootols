@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <main id="main">
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.6.0/mootools-core.js"></script>
+    <script>
+        (function() {
+            var div = new Element('div', {
+                id: 'my-id',
+                text: 'This is my first div from Mootools',
+                styles: {
+                    width: '500px',
+                    height: '200px',
+                    'background-color': '#000'
+                }
+            })
+            var div2 = new Element('div', {
+                id: 'my-id2',
+                text: 'This is my first div from Mootools',
+                styles: {
+                    width: '500px',
+                    height: '200px',
+                    'background-color': '#000'
+                }
+            })
+
+
+            var main = $('main')
+
+            div.inject(main, 'top')
+            div2.inject(main, 'top')
+
+            var myDiv = main.getElement('div')
+            var newAttr = myDiv.contains('id')
+            console.log(myDiv, newAttr)
+
+        })()
+    </script>
+</body>
+</html>

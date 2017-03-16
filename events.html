@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <main id="main">
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.6.0/mootools-core.js"></script>
+    <script>
+        $(window).addEvent('domready', function() {
+            var button = new Element('button', {
+                text: 'Click me',
+                id: 'my-btn'
+            })
+
+            var main = $('main')
+
+            button.inject(main, 'top')
+
+            $('my-btn').addEvent('son', function(obj) {
+                console.log('this is my first custom event', obj.name)
+            })
+
+            $('my-btn').addEvent('click', function() {
+                console.log('My events')
+                $('my-btn').fireEvent('son', { name: 'Leonan' })
+            })
+
+        })
+    </script>
+</body>
+</html>

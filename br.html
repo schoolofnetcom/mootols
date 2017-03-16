@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <main id="main">
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.6.0/mootools-core.js"></script>
+    <script>
+        $(window).addEvent('domready', function() {
+            console.log(Browser.name, Browser.version, Browser.platform)
+
+            var request = new Request.JSON({
+                url: 'http://httpbin.org/user-agent',
+                method: 'GET',
+                onSuccess: function(response) {
+                    console.log(response)
+                }
+            })
+
+
+            request.send()
+
+            // var request = new Request({
+            //     url: 'http://httpbin.org/user-agent',
+            //     method: 'GET',
+            //     headers: {
+            //         'X-Request': 'JSON'
+            //     },
+            //     onRequest: function() {
+            //         console.log('sending...')
+            //     },
+            //     onSuccess: function(response) {
+            //         console.log('response ok', response)
+            //     },
+            //     onFailure: function() {
+            //         console.log('failed')
+            //     }
+            // })
+
+
+            // var request = new Request({ url: 'http://httpbin.org/user-agent' })
+
+            // request.send()
+        })
+    </script>
+</body>
+</html>
